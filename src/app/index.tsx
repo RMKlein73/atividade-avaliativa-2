@@ -1,24 +1,31 @@
 
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { router } from 'expo-router';
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.emoji}>👋</Text>
+      <Text style={styles.logo}>RafaLac.</Text>
+      <Text style={styles.subtitulo}>Distribuidora de Laticínios</Text>
 
-      <Text style={styles.titulo}>
-        Hello World!
-      </Text>
+      <View style={styles.destaque}>
+        <Text style={styles.emoji}>🥛</Text>
+        <Text style={styles.mensagem}>Leites Caseiros da melhor Qualidade!</Text>
+      </View>
 
-      <Text style={styles.subtitulo}>
-        Meu primeiro aplicativo
-      </Text>
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={() => router.push('/catalogo')}
+      >
+        <Text style={styles.textoBotao}>Nossos Produtos</Text>
+      </TouchableOpacity>
 
-      <View style={styles.linha} />
-
-      <Text style={styles.rodape}>
-        Feito com React Native 💜
-      </Text>
+      <TouchableOpacity
+        style={styles.botaoOferta}
+        onPress={() => router.push('/ofertas')}
+      >
+        <Text style={styles.textoOferta}>Ver Promoções</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -26,40 +33,58 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#17152B',
-    alignItems: 'center',
     justifyContent: 'center',
-    padding: 24,
+    padding: 25,
+    backgroundColor: '#F7F3E8',
   },
-
-  emoji: {
-    fontSize: 60,
-    marginBottom: 20,
-  },
-
-  titulo: {
-    fontSize: 36,
+  logo: {
+    fontSize: 38,
     fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginBottom: 10,
-  },
-
-  subtitulo: {
-    fontSize: 16,
-    color: '#C4B5FD',
+    color: '#244B37',
     textAlign: 'center',
   },
-
-  linha: {
-    width: 80,
-    height: 4,
-    backgroundColor: '#A78BFA',
-    borderRadius: 10,
-    marginVertical: 25,
+  subtitulo: {
+    textAlign: 'center',
+    color: '#666666',
+    marginBottom: 30,
   },
-
-  rodape: {
-    fontSize: 14,
-    color: '#A5A1B8',
+  destaque: {
+    backgroundColor: '#DCE8C7',
+    padding: 25,
+    borderRadius: 18,
+    alignItems: 'center',
+    marginBottom: 25,
+  },
+  emoji: {
+    fontSize: 55,
+  },
+  mensagem: {
+    color: '#244B37',
+    fontSize: 17,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  botao: {
+    backgroundColor: '#244B37',
+    padding: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  textoBotao: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  botaoOferta: {
+    backgroundColor: '#EBCF73',
+    padding: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  textoOferta: {
+    color: '#244B37',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
